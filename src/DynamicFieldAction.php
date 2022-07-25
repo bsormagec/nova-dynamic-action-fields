@@ -4,6 +4,7 @@ namespace TuneZilla\DynamicActionFields;
 
 use Illuminate\Support\Collection;
 use Laravel\Nova\Http\Requests\ActionRequest;
+use Laravel\Nova\Http\Requests\NovaRequest;
 
 trait DynamicFieldAction
 {
@@ -15,7 +16,7 @@ trait DynamicFieldAction
         return 'dynamic-action-field-modal';
     }
 
-    final public function fields()
+    final public function fields(NovaRequest $request)
     {
         /** @var ActionRequest $actionRequest */
         $actionRequest = $this->actionRequest ?? app(ActionRequest::class);
